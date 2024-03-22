@@ -1,0 +1,55 @@
+:root {
+  --mark: 'X';
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  max-height: 100vh;
+}
+
+.turn {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-block: 3em;
+}
+
+.board {
+  display: grid;
+  margin: 0 auto;
+  grid-gap: 5px;
+  place-content: center;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  background-color: black;
+  width: fit-content;
+}
+
+.cell {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  position: relative;
+  font-size: 3rem;
+  user-select: none;
+  display: grid;
+  place-content: center;
+}
+
+.cell:not(.marked):hover:before {
+  content: attr(turn);
+  font-size: 3rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(0,0,0, 0.7);
+}
+
+.marked {
+  cursor: not-allowed;
+}
+
